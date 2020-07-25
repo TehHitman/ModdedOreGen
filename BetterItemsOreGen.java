@@ -1,5 +1,5 @@
 package com.tehhitman.world.gen;
-
+//change the package information and the imports
 import com.tehhitman.betteritems.BetterItemsMod;
 import com.tehhitman.betteritems.util.RegistryHandler;
 import net.minecraft.block.BlockState;
@@ -17,12 +17,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(modid = BetterItemsMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 
-public class BetterItemsOreGen {
+public class ModdedOreGen {
 
     @SubscribeEvent
     public static void generateOres(FMLLoadCompleteEvent event) {
         for (Biome biome : ForgeRegistries.BIOMES) {
 //Nether
+
             if (biome.getCategory() == Biome.Category.NETHER) {
 
             }
@@ -32,22 +33,14 @@ public class BetterItemsOreGen {
             }
 //Icy
             else if (biome.getCategory() == Biome.Category.ICY) {
-
-                genOre(biome, 2, 5, 34, 50, OreFeatureConfig.FillerBlockType.NATURAL_STONE, RegistryHandler.BLUE_SAPPHIRE_ORE.get().getDefaultState(), 5);
-
+                
             }
 //Over World
+// Put your ore in the "YOUR_ORE" area
             else {
-                genOre(biome, 5, 5, 30, 50, OreFeatureConfig.FillerBlockType.NATURAL_STONE, RegistryHandler.RUBY_ORE.get().getDefaultState(), 5);
-                genOre(biome, 5, 5, 30, 50, OreFeatureConfig.FillerBlockType.NATURAL_STONE, RegistryHandler.AMETHYST_ORE.get().getDefaultState(), 5);
-                genOre(biome, 3, 5, 30, 50, OreFeatureConfig.FillerBlockType.NATURAL_STONE, RegistryHandler.PINK_SAPPHIRE_ORE.get().getDefaultState(), 5);
-                genOre(biome, 12, 5, 21, 50, OreFeatureConfig.FillerBlockType.NATURAL_STONE, RegistryHandler.FOOLS_GOLD_ORE.get().getDefaultState(), 5);
+                genOre(biome, 5, 5, 30, 50, OreFeatureConfig.FillerBlockType.NATURAL_STONE, RegistryHandler.YOUR_ORE.get().getDefaultState(), 5);
             }
-
-
-
         }
-
     }
     private static void genOre(Biome biome, int count, int bottomOffset, int topOffset, int max, OreFeatureConfig.FillerBlockType filler, BlockState defaultBlockstate, int size) {
         CountRangeConfig range = new CountRangeConfig(count, bottomOffset, topOffset, max);
